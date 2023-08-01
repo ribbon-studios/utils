@@ -1,0 +1,9 @@
+.app {
+  box-sizing: border-box;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  min-height: 100vh;
+}

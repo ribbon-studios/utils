@@ -1,0 +1,25 @@
+.button {
+  position: relative;
+
+  .hover {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 6px;
+
+    background: white;
+    // -webkit-text-fill-color: transparent;
+    // background-clip: text;
+
+    opacity: 0;
+    transition: 0.15s ease-in-out;
+    transition-property: opacity;
+  }
+
+  &:hover .hover {
+    opacity: 0.25;
+  }
+}

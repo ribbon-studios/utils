@@ -1,0 +1,15 @@
+.menu {
+  display: flex;
+  gap: 4px;
+  box-sizing: border-box;
+  height: 25px;
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
+  background-color: #ebebeb;
+  background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
+  background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
+  background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
+  background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
+  background: linear-gradient(top, #ebebeb, #d5d5d5);
+  padding: 0 6px;
+}
