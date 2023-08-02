@@ -1,8 +1,9 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useRef, useState } from 'react';
+import { useDidUpdateEffect, useReadOnlyCachedState } from '@rain-cafe/react-utils';
 import * as styles from './Window.module.scss';
 import { Menu } from './Menu';
-import { useReadOnlyCachedState } from '../../hooks/use-cached-state';
 import classNames from 'classnames';
+import { WindowResizer } from './WindowResizer';
 
 export type WindowProps = {
   children?: ReactNode;
@@ -18,7 +19,7 @@ export function Window({ children, preventEvents }: WindowProps) {
     return classNames(styles.container, preventEvents && styles.preventEvents);
   }, [preventEvents]);
 
-  useEffect(() => {
+  useDidUpdateEffect(() => {
     const { top, left, right, bottom } = containerRef.current.getBoundingClientRect();
 
     if (zoom) {
@@ -68,11 +69,11 @@ export function Window({ children, preventEvents }: WindowProps) {
   }, [zoom]);
 
   return (
-    <div className={className} ref={containerRef}>
+    <WindowResizer className={className} ref={containerRef} debug>
       <div className={styles.window} ref={windowRef}>
         <Menu onZoom={() => setZoom(!zoom)} />
         {children}
       </div>
-    </div>
+    </WindowResizer>
   );
 }

@@ -1418,7 +1418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/resolver-default@npm:2.9.3":
+"@parcel/resolver-default@npm:2.9.3, @parcel/resolver-default@npm:^2.9.3":
   version: 2.9.3
   resolution: "@parcel/resolver-default@npm:2.9.3"
   dependencies:
@@ -1832,13 +1832,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rain-cafe/react-utils@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@rain-cafe/react-utils@npm:1.0.3"
+  peerDependencies:
+    react: "*"
+  checksum: 0509ec5a5520c0e220197a8f68df099dc54d0c4bf5018713e50a639164a6f8c34de1185569bf26eed20e5ba249a64c3fef9619eb135a4a546000e207fb92b5ba
+  languageName: node
+  linkType: hard
+
 "@rain-cafe/utils@workspace:.":
   version: 0.0.0-use.local
   resolution: "@rain-cafe/utils@workspace:."
   dependencies:
     "@parcel/packager-raw-url": 2.9.3
+    "@parcel/resolver-default": ^2.9.3
     "@parcel/transformer-sass": 2.9.3
     "@parcel/transformer-webmanifest": 2.9.3
+    "@rain-cafe/react-utils": ^1.0.3
     "@testing-library/jest-dom": ^5.17.0
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.4.3
@@ -1852,6 +1863,7 @@ __metadata:
     eslint-config-prettier: ^8.9.0
     eslint-config-react: ^1.1.7
     eslint-plugin-react: ^7.33.1
+    eslint-plugin-unused-imports: ^3.0.0
     jest: ^29.6.2
     jest-environment-jsdom: ^29.6.2
     parcel: ^2.9.3
@@ -3830,6 +3842,28 @@ __metadata:
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
   checksum: 0427bd24acb87422b7298686203167123ba289ba563384983f3d99fad7817eae7f63157fd2e9b868bdcf0760719c319ab1e22a44764a98302034b0c844763e57
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-unused-imports@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "eslint-plugin-unused-imports@npm:3.0.0"
+  dependencies:
+    eslint-rule-composer: ^0.3.0
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    eslint: ^8.0.0
+  peerDependenciesMeta:
+    "@typescript-eslint/eslint-plugin":
+      optional: true
+  checksum: 51666f62cc8dccba2895ced83f3c1e0b78b68c357e17360e156c4db548bfdeda34cbd8725192fb4903f22d5069400fb22ded6039631df01ee82fd618dc307247
+  languageName: node
+  linkType: hard
+
+"eslint-rule-composer@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "eslint-rule-composer@npm:0.3.0"
+  checksum: c2f57cded8d1c8f82483e0ce28861214347e24fd79fd4144667974cd334d718f4ba05080aaef2399e3bbe36f7d6632865110227e6b176ed6daa2d676df9281b1
   languageName: node
   linkType: hard
 

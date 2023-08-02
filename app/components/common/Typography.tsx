@@ -1,29 +1,29 @@
-import classnames from 'classnames';
 import { PolymorphicPropsWithoutRef } from 'react-polymorphic-types';
+import { useReadOnlyCachedState } from '@rain-cafe/react-utils';
+import classnames from 'classnames';
 import styles from './Typography.module.scss';
-import { Link } from 'react-router-dom';
-import { useReadOnlyCachedState } from '../../hooks/use-cached-state';
 
-type TypographyValidTypes = 'h1' | 'h2' | 'h3';
-type TypographyValidAsTypes = typeof Link | TypographyValidTypes;
+export const TypographyDefaultElement = 'h2';
 
-interface TypographyOwnProps {
-  type: TypographyValidTypes;
+type TypographyTypes = 'h1' | 'h2' | 'h3';
+
+interface TypographyOwnProps<T extends TypographyTypes> {
+  type?: T;
   children: React.ReactNode;
   className?: string;
 }
 
-export type TypographyProps<T extends TypographyValidAsTypes> = PolymorphicPropsWithoutRef<TypographyOwnProps, T>;
+export type TypographyProps<
+  T extends TypographyTypes,
+  E extends React.ElementType = typeof TypographyDefaultElement
+> = PolymorphicPropsWithoutRef<TypographyOwnProps<T>, E>;
 
-export function Typography<E extends TypographyValidAsTypes>({
-  as,
-  type,
-  children,
-  className: externalClassName,
-  ...extraProps
-}: TypographyProps<E>) {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  const Element = as || type;
+export function Typography<
+  T extends TypographyTypes = typeof TypographyDefaultElement,
+  E extends React.ElementType = T
+>({ as, type, children, className: externalClassName, ...extraProps }: TypographyProps<T, E>) {
+  const Element: React.ElementType = as ?? type ?? TypographyDefaultElement;
+
   const className = useReadOnlyCachedState(() => {
     return classnames(styles.typography, styles[type], externalClassName);
   }, [type, externalClassName]);

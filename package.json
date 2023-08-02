@@ -9,6 +9,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@rain-cafe/react-utils": "^1.0.3",
     "@uiw/github-corners": "^1.5.15",
     "classnames": "^2.3.2",
     "react": "^18.2.0",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "2.9.3",
+    "@parcel/resolver-default": "^2.9.3",
     "@parcel/transformer-sass": "2.9.3",
     "@parcel/transformer-webmanifest": "2.9.3",
     "@testing-library/jest-dom": "^5.17.0",
@@ -32,6 +34,7 @@
     "eslint-config-prettier": "^8.9.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
     "parcel": "^2.9.3",

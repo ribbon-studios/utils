@@ -1,6 +1,6 @@
 import classNames from 'classnames';
+import { useReadOnlyCachedState } from '@rain-cafe/react-utils';
 import * as styles from './MenuButton.module.scss';
-import { useReadOnlyCachedState } from '../../hooks/use-cached-state';
 
 export type MenuButtonProps = {
   color: 'red' | 'yellow' | 'green';
