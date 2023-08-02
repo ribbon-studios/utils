@@ -1,0 +1,10 @@
+{
+  "name": "Utils",
+  "short_name": "Utils",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2f3640",
+  "background_color": "#2f3640",
+  "icons": [],
+  "gcm_sender_id": "103953800507"
+}

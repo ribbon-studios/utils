@@ -1,0 +1,68 @@
+@mixin background($direction) {
+  background: -webkit-linear-gradient($direction, transparent, rgba(255, 255, 255, 0.2));
+  background: -moz-linear-gradient($direction, transparent, rgba(255, 255, 255, 0.2));
+  background: -ms-linear-gradient($direction, transparent, rgba(255, 255, 255, 0.2));
+  background: -o-linear-gradient($direction, transparent, rgba(255, 255, 255, 0.2));
+  background: linear-gradient($direction, transparent, rgba(255, 255, 255, 0.2));
+}
+
+.container {
+  position: relative;
+  min-width: 600px;
+  min-height: 320px;
+  max-width: calc(100% - 40px);
+  max-height: 100vh;
+  overflow-y: auto;
+
+  .resizer {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    z-index: 10000;
+    opacity: 0;
+
+    &.corner {
+      @include background(top left);
+
+      bottom: 0;
+      right: 0;
+      z-index: 10001;
+      border-bottom-right-radius: 6px;
+
+      cursor: se-resize;
+    }
+
+    &.right {
+      @include background(left);
+
+      top: 0;
+      bottom: 0;
+      right: 0;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+
+      cursor: e-resize;
+    }
+
+    &.bottom {
+      @include background(top);
+
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+
+      cursor: s-resize;
+    }
+  }
+
+  &[data-debug] .resizer {
+    transition: 0.15s ease-in-out;
+    transition-property: opacity;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

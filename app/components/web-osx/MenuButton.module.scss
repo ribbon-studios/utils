@@ -1,0 +1,46 @@
+.button {
+  box-sizing: border-box;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 6px;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: white;
+
+    opacity: 0;
+    transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: opacity;
+  }
+
+  &:hover:before {
+    opacity: 0.5;
+  }
+}
+
+.red {
+  background-color: #ff5c5c;
+  border-color: #e33e41;
+}
+
+.yellow {
+  background-color: #ffbd4c;
+  border-color: #e09e3e;
+}
+
+.green {
+  background-color: #00ca56;
+  border-color: #14ae46;
+}
