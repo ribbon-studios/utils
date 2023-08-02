@@ -1,0 +1,9 @@
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+[[redirects]]
+from = "rain-cafe-utils.netlify.app/*"
+to = "https://utils.rains.cafe/:splat"
+status = 301
