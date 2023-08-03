@@ -21,6 +21,10 @@ Utils is all of your favorite unix tools made available via the web!
 
 All of our implementations are client-side meaning none of your data leaves your machine!
 
+## What happened to [utils.gg](https://github.com/salte-io/utils)?
+
+This app is its successor! Due to the outdated codebase and numerous issues it <br/> had accrued I opted to port it to React and put it under my own organization.
+
 [_**Want to Contribute?**_](/CONTRIBUTING.md)
 
 [![Deploys by Netlify][netlify-image]][netlify-url]
