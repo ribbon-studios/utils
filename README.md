@@ -1,11 +1,19 @@
-_**⚠️ This repo is still a WIP and things are always subject to change. ⚠️**_
+<div align="center">
+  <a href="https://utils.rains.cafe">
+    <img height="260px" src="https://raw.githubusercontent.com/rain-cafe/logos/main/utils/utils.svg">
+  </a>
+</div>
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/rain-cafe/utils/ci.yml?branch=main)](https://github.com/rain-cafe/utils/actions/workflows/ci.yml?query=branch%3Amain)
-[![Coveralls](https://img.shields.io/coveralls/github/rain-cafe/utils)](https://coveralls.io/github/rain-cafe/utils)
+<h3 align="center">
+	Local only implementation of your favorite tools.
+</h3>
 
-### Utils
-
-Local only implementation of your favorite tools.
+<div align="center">
+  
+  [![Build Status](https://img.shields.io/github/actions/workflow/status/rain-cafe/utils/ci.yml?branch=main)](https://github.com/rain-cafe/utils/actions/workflows/ci.yml?query=branch%3Amain)
+  [![Coveralls](https://img.shields.io/coveralls/github/rain-cafe/utils)](https://coveralls.io/github/rain-cafe/utils)
+  
+</div>
 
 ## What is Utils?
 
