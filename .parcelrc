@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/parcel-bundler/parcel/v2/parcelrc.schema.json",
+  "extends": "@parcel/config-default",
+  "resolvers": [
+    "@parcel/resolver-glob",
+    "..."
+  ]
+}

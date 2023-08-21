@@ -1437,6 +1437,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@parcel/resolver-glob@npm:^2.9.3":
+  version: 2.9.3
+  resolution: "@parcel/resolver-glob@npm:2.9.3"
+  dependencies:
+    "@parcel/diagnostic": 2.9.3
+    "@parcel/node-resolver-core": 3.0.3
+    "@parcel/plugin": 2.9.3
+    "@parcel/utils": 2.9.3
+    nullthrows: ^1.1.1
+  checksum: fc0d695ca3c7a3440e0a496e5a7c9ffe5a0239f4ebebf7393c5496053e8f37dedf0c03b8df4330ed6d46791ec6ba7873245ac57ae0730d519f2949dbb007170c
+  languageName: node
+  linkType: hard
+
 "@parcel/runtime-browser-hmr@npm:2.9.3":
   version: 2.9.3
   resolution: "@parcel/runtime-browser-hmr@npm:2.9.3"
@@ -1856,6 +1869,7 @@ __metadata:
   dependencies:
     "@parcel/packager-raw-url": 2.9.3
     "@parcel/resolver-default": ^2.9.3
+    "@parcel/resolver-glob": ^2.9.3
     "@parcel/transformer-sass": 2.9.3
     "@parcel/transformer-webmanifest": 2.9.3
     "@rain-cafe/react-utils": ^1.0.3

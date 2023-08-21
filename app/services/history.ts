@@ -8,7 +8,7 @@ export class ScopedHistory<T extends string> {
 
   constructor(scope: T) {
     this.storage = new ScopedStorage(scope);
-    this._list = [];
+    this._list = JSON.parse(this.storage.get('history') || '[]');
   }
 
   add(command: string): void {
@@ -59,11 +59,6 @@ export class ScopedHistory<T extends string> {
   }
 
   get list(): string[] {
-    if (!this._list) {
-      this._list = JSON.parse(this.storage.get('history') || '[]');
-      this.store(this._list);
-    }
-
     return this._list;
   }
 }
