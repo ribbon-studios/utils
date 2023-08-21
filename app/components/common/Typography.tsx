@@ -25,7 +25,7 @@ export function Typography<
   const Element: React.ElementType = as ?? type ?? TypographyDefaultElement;
 
   const className = useReadOnlyCachedState(() => {
-    return classnames(styles.typography, styles[type], externalClassName);
+    return classnames(styles.typography, styles[type as string], externalClassName);
   }, [type, externalClassName]);
 
   return (

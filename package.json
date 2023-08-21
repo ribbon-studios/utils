@@ -16,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-polymorphic-types": "^2.0.0",
     "react-router": "^6.14.2",
-    "react-router-dom": "^6.14.2"
+    "react-router-dom": "^6.14.2",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "2.9.3",
@@ -28,6 +29,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.5.3",
     "@types/react": "^18.2.17",
+    "@types/react-syntax-highlighter": "^15.5.7",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
     "eslint": "^8.46.0",

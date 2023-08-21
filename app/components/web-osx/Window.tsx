@@ -4,6 +4,7 @@ import * as styles from './Window.module.scss';
 import { Menu } from './Menu';
 import classNames from 'classnames';
 import { WindowResizer } from './WindowResizer';
+import { isNullable } from '../../utils/guards';
 
 export type WindowProps = {
   children?: ReactNode;
@@ -11,8 +12,8 @@ export type WindowProps = {
 };
 
 export function Window({ children, preventEvents }: WindowProps) {
-  const containerRef = useRef<HTMLDivElement>();
-  const windowRef = useRef<HTMLDivElement>();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const windowRef = useRef<HTMLDivElement>(null);
   const [zoom, setZoom] = useState(false);
 
   const className = useReadOnlyCachedState(() => {
@@ -20,13 +21,18 @@ export function Window({ children, preventEvents }: WindowProps) {
   }, [preventEvents]);
 
   useDidUpdateEffect(() => {
-    const { top, left, right, bottom } = containerRef.current.getBoundingClientRect();
+    if (isNullable(containerRef.current) || isNullable(windowRef.current)) return;
+
+    const containerElement = containerRef.current;
+    const windowElement = windowRef.current;
+
+    const { top, left, right, bottom } = containerElement.getBoundingClientRect();
 
     if (zoom) {
-      windowRef.current.style.position = 'fixed';
+      windowElement.style.position = 'fixed';
     }
 
-    windowRef.current
+    windowElement
       .animate(
         [
           {
@@ -52,27 +58,27 @@ export function Window({ children, preventEvents }: WindowProps) {
       )
       .finished.then(() => {
         if (zoom) {
-          windowRef.current.style.borderRadius = '0';
-          windowRef.current.style.top = '0';
-          windowRef.current.style.left = '0';
-          windowRef.current.style.right = '0';
-          windowRef.current.style.bottom = '0';
+          windowElement.style.borderRadius = '0';
+          windowElement.style.top = '0';
+          windowElement.style.left = '0';
+          windowElement.style.right = '0';
+          windowElement.style.bottom = '0';
         } else {
-          windowRef.current.style.borderRadius = '';
-          windowRef.current.style.position = '';
-          windowRef.current.style.top = '';
-          windowRef.current.style.left = '';
-          windowRef.current.style.right = '';
-          windowRef.current.style.bottom = '';
+          windowElement.style.borderRadius = '';
+          windowElement.style.position = '';
+          windowElement.style.top = '';
+          windowElement.style.left = '';
+          windowElement.style.right = '';
+          windowElement.style.bottom = '';
         }
       });
-  }, [zoom]);
+  }, [zoom, containerRef, windowRef]);
 
   return (
     <WindowResizer className={className} ref={containerRef} debug>
       <div className={styles.window} ref={windowRef}>
         <Menu onZoom={() => setZoom(!zoom)} />
-        {children}
+        <div className={styles.content}>{children}</div>
       </div>
     </WindowResizer>
   );

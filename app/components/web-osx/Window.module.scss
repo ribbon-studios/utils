@@ -8,9 +8,19 @@
 }
 
 .window {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   border-radius: 6px;
   background-color: rgb(27, 29, 35);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px;
   z-index: 9999;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 15px;
 }

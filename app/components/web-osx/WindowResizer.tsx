@@ -1,7 +1,8 @@
-import React, { ReactNode, useState, ComponentProps, useRef, useEffect, forwardRef } from 'react';
+import React, { ReactNode, useState, ComponentProps, useRef, useEffect, forwardRef, ForwardedRef } from 'react';
 import { useCachedState, useReadOnlyCachedState } from '@rain-cafe/react-utils';
 import * as styles from './WindowResizer.module.scss';
 import classNames from 'classnames';
+import { isNullable } from '../../utils/guards';
 
 export type WindowResizerProps = {
   children: ReactNode;
@@ -20,7 +21,7 @@ export const WindowResizer = forwardRef(function WindowResizer(
     height: externalHeight,
     ...props
   }: WindowResizerProps,
-  externalRef: React.MutableRefObject<HTMLDivElement>
+  externalRef: ForwardedRef<HTMLDivElement>
 ) {
   const className = useReadOnlyCachedState(() => {
     return classNames(styles.container, externalClassName);
@@ -28,10 +29,14 @@ export const WindowResizer = forwardRef(function WindowResizer(
   const [height, setHeight] = useCachedState(() => externalHeight, [externalHeight]);
   const [width, setWidth] = useCachedState(() => externalWidth, [externalWidth]);
   const [resizer, setResizer] = useState<HTMLDivElement | null>(null);
-  const containerRef: React.MutableRefObject<HTMLDivElement> = externalRef || useRef<HTMLDivElement>();
+  const containerRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(
+    typeof externalRef === 'function' ? null : externalRef
+  );
 
   useEffect(() => {
     const onResize = (e: MouseEvent) => {
+      if (isNullable(resizer) || isNullable(containerRef.current)) return;
+
       if (resizer.classList.contains(styles.right) || resizer.classList.contains(styles.corner)) {
         setWidth(e.clientX - containerRef.current.getBoundingClientRect().left);
       }
@@ -52,7 +57,7 @@ export const WindowResizer = forwardRef(function WindowResizer(
     return () => window.removeEventListener('mousemove', onResize);
   }, [resizer]);
 
-  const onBeginResize = (e) => {
+  const onBeginResize = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setResizer(e.currentTarget);
 
