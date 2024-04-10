@@ -1,6 +1,5 @@
 {
   "name": "@ribbon-studios/utils",
-  "packageManager": "yarn@3.6.1",
   "scripts": {
     "ci": "bun install --frozen-lockfile",
     "start": "parcel index.html",
