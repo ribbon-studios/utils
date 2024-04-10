@@ -15,13 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18
-          cache: 'yarn'
+          bun-version: latest
 
-      - name: Install Packages
-        run: yarn install --immutable
+      - run: bun ci
 
   lint:
     name: Lint
@@ -30,13 +28,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18
-          cache: 'yarn'
+          bun-version: latest
 
-      - name: Install Packages
-        run: yarn install --immutable
+      - run: bun ci
 
       - name: Lint
         run: yarn lint
@@ -48,13 +44,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18
-          cache: 'yarn'
+          bun-version: latest
 
-      - name: Install Packages
-        run: yarn install --immutable
+      - run: bun ci
 
       - name: Coverage
         run: yarn run test:coverage
@@ -71,13 +65,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18
-          cache: 'yarn'
+          bun-version: latest
 
-      - name: Install Packages
-        run: yarn install --immutable
+      - run: bun ci
 
       - name: Build
         run: yarn run build

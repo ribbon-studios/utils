@@ -1,5 +1,5 @@
 import { ReactNode, useRef, useState } from 'react';
-import { useDidUpdateEffect, useReadOnlyCachedState } from '@rain-cafe/react-utils';
+import { useDidUpdateEffect } from '@ribbon-studios/react-utils';
 import * as styles from './Window.module.scss';
 import { Menu } from './Menu';
 import classNames from 'classnames';
@@ -15,10 +15,6 @@ export function Window({ children, preventEvents }: WindowProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const windowRef = useRef<HTMLDivElement>(null);
   const [zoom, setZoom] = useState(false);
-
-  const className = useReadOnlyCachedState(() => {
-    return classNames(styles.container, preventEvents && styles.preventEvents);
-  }, [preventEvents]);
 
   useDidUpdateEffect(() => {
     if (isNullable(containerRef.current) || isNullable(windowRef.current)) return;
@@ -75,7 +71,11 @@ export function Window({ children, preventEvents }: WindowProps) {
   }, [zoom, containerRef, windowRef]);
 
   return (
-    <WindowResizer className={className} ref={containerRef} debug>
+    <WindowResizer
+      className={classNames(styles.container, preventEvents && styles.preventEvents)}
+      ref={containerRef}
+      debug
+    >
       <div className={styles.window} ref={windowRef}>
         <Menu onZoom={() => setZoom(!zoom)} />
         <div className={styles.content}>{children}</div>

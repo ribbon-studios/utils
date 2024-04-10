@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { useReadOnlyCachedState } from '@rain-cafe/react-utils';
 import * as styles from './MenuButton.module.scss';
 
 export type MenuButtonProps = {
@@ -8,9 +7,5 @@ export type MenuButtonProps = {
 };
 
 export function MenuButton({ color, onClick }: MenuButtonProps) {
-  const className = useReadOnlyCachedState(() => {
-    return classNames(styles.button, styles[color]);
-  }, [color]);
-
-  return <div className={className} onClick={onClick} />;
+  return <div className={classNames(styles.button, styles[color])} onClick={onClick} />;
 }

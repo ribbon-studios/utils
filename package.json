@@ -1,7 +1,8 @@
 {
-  "name": "@rain-cafe/utils",
+  "name": "@ribbon-studios/utils",
   "packageManager": "yarn@3.6.1",
   "scripts": {
+    "ci": "bun install --frozen-lockfile",
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "lint": "eslint 'app/**/*.tsx'",
@@ -9,7 +10,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "@rain-cafe/react-utils": "^1.0.3",
+    "@ribbon-studios/react-utils": "^2.3.2",
     "@uiw/github-corners": "^1.5.15",
     "classnames": "^2.3.2",
     "react": "^18.2.0",

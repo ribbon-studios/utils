@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://utils.rains.cafe">
-    <img height="260px" src="https://raw.githubusercontent.com/rain-cafe/logos/main/utils/utils.svg">
+    <img height="260px" src="https://raw.githubusercontent.com/ribbon-studios/logos/main/utils/utils.svg">
   </a>
 </div>
 
@@ -10,8 +10,8 @@
 
 <div align="center">
   
-  [![Build Status](https://img.shields.io/github/actions/workflow/status/rain-cafe/utils/ci.yml?branch=main)](https://github.com/rain-cafe/utils/actions/workflows/ci.yml?query=branch%3Amain)
-  [![Coveralls](https://img.shields.io/coveralls/github/rain-cafe/utils)](https://coveralls.io/github/rain-cafe/utils)
+  [![Build Status](https://img.shields.io/github/actions/workflow/status/ribbon-studios/utils/ci.yml?branch=main)](https://github.com/ribbon-studios/utils/actions/workflows/ci.yml?query=branch%3Amain)
+  [![Coveralls](https://img.shields.io/coveralls/github/ribbon-studios/utils)](https://coveralls.io/github/ribbon-studios/utils)
   
 </div>
 

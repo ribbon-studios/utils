@@ -1,5 +1,4 @@
 import { PolymorphicPropsWithoutRef } from 'react-polymorphic-types';
-import { useReadOnlyCachedState } from '@rain-cafe/react-utils';
 import classnames from 'classnames';
 import styles from './Typography.module.scss';
 
@@ -24,12 +23,8 @@ export function Typography<
 >({ as, type, children, className: externalClassName, ...extraProps }: TypographyProps<T, E>) {
   const Element: React.ElementType = as ?? type ?? TypographyDefaultElement;
 
-  const className = useReadOnlyCachedState(() => {
-    return classnames(styles.typography, styles[type as string], externalClassName);
-  }, [type, externalClassName]);
-
   return (
-    <Element {...extraProps} className={className}>
+    <Element {...extraProps} className={classnames(styles.typography, styles[type as string], externalClassName)}>
       {children}
     </Element>
   );

@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, ComponentProps, useRef, useEffect, forwardRef, ForwardedRef } from 'react';
-import { useCachedState, useReadOnlyCachedState } from '@rain-cafe/react-utils';
+import { useCachedState } from '@ribbon-studios/react-utils';
 import * as styles from './WindowResizer.module.scss';
 import classNames from 'classnames';
 import { isNullable } from '../../utils/guards';
@@ -23,9 +23,6 @@ export const WindowResizer = forwardRef(function WindowResizer(
   }: WindowResizerProps,
   externalRef: ForwardedRef<HTMLDivElement>
 ) {
-  const className = useReadOnlyCachedState(() => {
-    return classNames(styles.container, externalClassName);
-  }, [externalClassName]);
   const [height, setHeight] = useCachedState(() => externalHeight, [externalHeight]);
   const [width, setWidth] = useCachedState(() => externalWidth, [externalWidth]);
   const [resizer, setResizer] = useState<HTMLDivElement | null>(null);
@@ -70,7 +67,7 @@ export const WindowResizer = forwardRef(function WindowResizer(
   return (
     <div
       {...props}
-      className={className}
+      className={classNames(styles.container, externalClassName)}
       style={{ width: `${width}px`, height: `${height}px` }}
       data-debug={debug}
       ref={containerRef}
