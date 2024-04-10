@@ -12,7 +12,7 @@ Then this is the perfect place for you!
 - Install the Dependencies
 
 ```sh
-$ yarn
+$ bun ci
 ```
 
 ## Start the Server~
@@ -20,5 +20,5 @@ $ yarn
 The app should startup at http://localhost:1234!
 
 ```sh
-$ yarn start
+$ bun start
 ```

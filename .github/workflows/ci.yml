@@ -35,7 +35,7 @@ jobs:
       - run: bun ci
 
       - name: Lint
-        run: yarn lint
+        run: bun run lint
 
   test:
     name: Test
@@ -51,7 +51,7 @@ jobs:
       - run: bun ci
 
       - name: Coverage
-        run: yarn run test:coverage
+        run: bun run test:coverage
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
@@ -72,7 +72,7 @@ jobs:
       - run: bun ci
 
       - name: Build
-        run: yarn run build
+        run: bun run build
 
   deploy:
     name: Deploy
