@@ -26,9 +26,8 @@ export const WindowResizer = forwardRef(function WindowResizer(
   const [height, setHeight] = useCachedState(() => externalHeight, [externalHeight]);
   const [width, setWidth] = useCachedState(() => externalWidth, [externalWidth]);
   const [resizer, setResizer] = useState<HTMLDivElement | null>(null);
-  const containerRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(
-    typeof externalRef === 'function' ? null : externalRef
-  );
+  const containerRef: React.RefObject<HTMLDivElement> =
+    typeof externalRef === 'function' ? (externalRef as any) : useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onResize = (e: MouseEvent) => {

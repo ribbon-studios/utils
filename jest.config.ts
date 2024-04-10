@@ -22,7 +22,7 @@ const jestConfig: JestConfigWithTsJest = {
   moduleNameMapper: {
     '\\.(scss)$': '<rootDir>/__tests__/identity-obj-proxy-esm.ts',
   },
-  transformIgnorePatterns: ['^.+\\.js$'],
+  transformIgnorePatterns: ['^.+\\.js$', 'node_modules/(?!react-syntax-highlighter)'],
 };
 
 export default jestConfig;
